@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+
+    <style> @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@323&family=Merienda&family=Otomanopee+One&display=swap'); </style>
+</head>
+<body>
+
+    <div class="container app-wrap">
+
+        <!--SEARCH BOX-->
+        <div class="columns is-mobile is-centered" style="padding-top: 100px;">
+            <div class="column is-half">
+                <div class="control has-icons-left">
+                    <input class="input search-box is-rounded" type="text" id="search_term" placeholder="Search for a city">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!--LOCATION-->
+        <div class="columns is-mobile is-centered">
+            <div class="column has-text-centered">
+                <section class="location">
+                    <div class="city">Toronto, CA</div>
+                    <div class="date">Sunday, July 18, 2021</div>
+                </section>
+            </div>
+        </div>
+
+        <!--CURRENT-->
+        <div class="columns is-mobile is-centered">
+            <div class="column has-text-centered">
+                <nav class="level">
+
+                    <!--TEMPERATURE BOX-->
+                    <div class="level-item has-text-centered">
+                        <div class="box">
+                            <p class="heading">Temp.</p>
+                            <p class="title temp">28&#176;c</p>
+                        </div>
+                    </div>
+
+                    <!--WEATHER CONDITION BOX-->
+                    <div class="level-item has-text-centered">
+                        <div class="box">
+                            <p class="heading">Weather Condition</p>
+                            <p class="title weather">Sunny</p>
+                        </div>
+                    </div>
+
+                    <!--HIGH BOX-->
+                    <div class="level-item has-text-centered">
+                        <div class="box">
+                            <p class="heading">High</p>
+                            <p class="title high">30&#176;c</p>
+                        </div>
+                    </div>
+
+                    <!--LOW BOX-->
+                    <div class="level-item has-text-centered">
+                        <div class="box">
+                            <p class="heading">Low</p>
+                            <p class="title low">21&#176;c</p>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
