@@ -9,9 +9,9 @@
 - Pre-commit linting via Stylelint
 
 ### Version History
-- <del>v1.1: simple background, city-input-field, display 3 values</del>
+- <strike>v1.1: simple background, city-input-field, display 3 values</strike>
 - v2.0:
-* Pre-commit linting (ESlint) + formatting (airbnb/prettier)
+    * Pre-commit linting (ESlint) + formatting (airbnb/prettier)
 
 ### To Do:
 - [x] dynamic icon beside weather-box which changes based on city
