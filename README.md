@@ -6,21 +6,16 @@
 - HTML
 - CSS
 - JavaScript
-- Firebase webhosting
-- Pre-commit linting
+- Pre-commit linting via stylelint
 
 ### Version History
 - v1.1: simple background, input-field for city, show temperature, weather condition, high, and low.
 
-### To-Do:
-- Add Autocomplete feauture for input field using Google Places API.
-- Error handling for incorrect city name (nothing shows, but u gotta tell em that nothing showed because invalid city name).
-- idea: bulma-tiles layout for temp,condition,hi,low values instead of bulma-levels.
-- idea: add video background instead of static image.
-- Add Icon beside weather-box
-- Humidity
-- Wind (Speed/Direction in angular degrees convert to NESW)
-- Sunrise Time im UTC convert to am/pm value
-- Sunset Time im UTC convert to am/pm value
-
-
+### To Do:
+- [x] Add dynamic icon beside weather-box which changes based on city
+- [x] Add more data: Temperature Feels Like, Humidity, Wind Velocity
+- [x] Error handling for invalid city input-field queries
+- [x] Create an algorithm to convert degrees (meteorological-standard) to compass bearing (NNE, SW, etc) for Wind Velocity
+- [ ] Add Autocomplete feauture for input field
+- [ ] Add Sunrise/Sunset sundial component
+- [ ] Webhosted
