@@ -6,7 +6,7 @@
 - HTML
 - CSS
 - JavaScript
-- Pre-commit linting via stylelint
+- Pre-commit linting via Stylelint
 
 ### Version History
 - v1.1: simple background, input-field for city, show temperature, weather condition, high, and low.
