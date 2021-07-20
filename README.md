@@ -1,5 +1,7 @@
 # Weather-App
 
+[![CodeFactor](https://www.codefactor.io/repository/github/devarshi-ap/weather-webapp/badge)](https://www.codefactor.io/repository/github/devarshi-ap/weather-webapp)
+
 ### Technologies & Tools:
 - HTML
 - CSS
