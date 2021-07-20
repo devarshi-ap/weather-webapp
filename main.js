@@ -24,62 +24,72 @@ function getResults(query) {
 
 function displayResults (weather) {
 
-    // debugging purposes
+    if(weather.message == "city not found") {
+        console.log("City Not Found");
 
-    console.log(weather);
+        // Locations Error Display
 
-    // Locations
+        let city = document.querySelector('.city');
+        city.innerText = `City Not Found...`;
 
-    let city = document.querySelector('.city');
-    city.innerText = `${weather.name}, ${weather.sys.country}`;
+    } else {
+        // debugging purposes
 
-    // Date (formated)
+        console.log(weather);
 
-    let now = new Date();
-    let date = document.querySelector('.date');
-    date.innerText = dateFormatter(now);
+        // Locations
 
-    // Temperature
+        let city = document.querySelector('.city');
+        city.innerText = `${weather.name}, ${weather.sys.country}`;
 
-    let temp = document.querySelector('.temp');
-    temp.innerHTML = `${Math.round(weather.main.temp)}&#176;c`;
+        // Date (formated)
 
-    // Temperature Feels Like
+        let now = new Date();
+        let date = document.querySelector('.date');
+        date.innerText = dateFormatter(now);
 
-    let feelsLike = document.querySelector('.feels-like');
-    feelsLike.innerHTML = `${Math.round(weather.main.feels_like)}&#176;c`;
-    
-    // Weather Condition
+        // Temperature
 
-    let weatherCondition = document.querySelector('.weather');
-    weatherCondition.innerText = weather.weather[0].description;
+        let temp = document.querySelector('.temp');
+        temp.innerHTML = `${Math.round(weather.main.temp)}&#176;c`;
 
-    // Weather Condition Icon
+        // Temperature Feels Like
 
-    let weatherParent = document.querySelector('.weather-box');
-    let weatherImgTag = document.querySelector('.weather-icon');
-    let attributes = {
-        'src': getIconUrl(weather.weather[0].icon),
-        'alt': 'weather icon'
+        let feelsLike = document.querySelector('.feels-like');
+        feelsLike.innerHTML = `${Math.round(weather.main.feels_like)}&#176;c`;
+        
+        // Weather Condition
+
+        let weatherCondition = document.querySelector('.weather');
+        weatherCondition.innerText = weather.weather[0].description;
+
+        // Weather Condition Icon
+
+        let weatherParent = document.querySelector('.weather-box');
+        let weatherImgTag = document.querySelector('.weather-icon');
+        let attributes = {
+            'src': getIconUrl(weather.weather[0].icon),
+            'alt': 'weather icon'
+        }
+        setMultipleAttr(weatherImgTag, attributes);
+        weatherParent.append(weatherImgTag);
+
+        // Daily Temperature High/Low
+
+        let high = document.querySelector('.high-low');
+        high.innerHTML = `${Math.round(weather.main.temp_max)}&#176;/${Math.round(weather.main.temp_min)}&#176;`;
+
+        // Humidity %
+
+        let humidity = document.querySelector('.humidity');
+        humidity.innerText = `${weather.main.humidity}%`;
+
+        // Wind Velocity
+
+        let wind = document.querySelector('.wind-velocity');
+        let windDirection = degToCompass(weather.wind.deg)
+        wind.innerHTML = `${weather.wind.speed}m/s ${windDirection}`;
     }
-    setMultipleAttr(weatherImgTag, attributes);
-    weatherParent.append(weatherImgTag);
-
-    // Daily Temperature High/Low
-
-    let high = document.querySelector('.high-low');
-    high.innerHTML = `${Math.round(weather.main.temp_max)}&#176;/${Math.round(weather.main.temp_min)}&#176;`;
-
-    // Humidity %
-
-    let humidity = document.querySelector('.humidity');
-    humidity.innerText = `${weather.main.humidity}%`;
-
-    // Wind Velocity
-
-    let wind = document.querySelector('.wind-velocity');
-    let windDirection = degToCompass(weather.wind.deg)
-    wind.innerHTML = `${weather.wind.speed}m/s ${windDirection}`;
 }
 
 function dateFormatter(d) {
