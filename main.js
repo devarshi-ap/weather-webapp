@@ -1,127 +1,158 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-undef */
 const api = {
-    key: "08b5d6f804564fb8619e7b87de554153",
-    base: "https://api.openweathermap.org/data/2.5/",
-}
+  key: "08b5d6f804564fb8619e7b87de554153",
+  base: "https://api.openweathermap.org/data/2.5/",
+};
 
-const searchBox = document.querySelector('.search-box');
-searchBox.addEventListener('keypress', setQuery);
+const searchBox = document.querySelector(".search-box");
+searchBox.addEventListener("keypress", setQuery);
 
 function setQuery(evt) {
-    // keyCode of 'enter' button is 13
-    if (evt.keyCode == 13) {
-        getResults(searchBox.value);
-        console.log(searchBox.value);
-    }
+  // keyCode of 'enter' button is 13
+  if (evt.keyCode === 13) {
+    getResults(searchBox.value);
+    console.log(searchBox.value);
+  }
 }
 
 function getResults(query) {
-    fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
-        // resolve(value)
-        .then(weather => {
-            return weather.json();
-        }).then(displayResults);
+  fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
+    // resolve(value)
+    .then((weather) => weather.json())
+    .then(displayResults);
 }
 
-function displayResults (weather) {
+function displayResults(weather) {
 
-    if(weather.message == "city not found") {
-        console.log("City Not Found");
+  // debugging purposes
 
-        // Locations Error Display
+  console.log(weather);
 
-        let city = document.querySelector('.city');
-        city.innerText = `City Not Found...`;
+  const city = document.querySelector(".city");
+  const now = new Date();
+  const date = document.querySelector(".date");
+  const temp = document.querySelector(".temp");
+  const feelsLike = document.querySelector(".feels-like");
+  const weatherCondition = document.querySelector(".weather");
+  const high = document.querySelector(".high-low");
+  const humidity = document.querySelector(".humidity");
+  const wind = document.querySelector(".wind-velocity");
+  
+  if (weather.message === "city not found") {
+    console.log("City Not Found");
 
-    } else {
-        // debugging purposes
+    // Error Displays
 
-        console.log(weather);
+    city.innerText = `City Not Found...`;
+    date.innerText = '</>';
+    temp.innerHTML = `--&#176;c`;
+    feelsLike.innerHTML = `--&#176;c`;
+    weatherCondition.innerText = `none`;
+    high.innerHTML = `--/--`;
+    humidity.innerText = `--%`;
+    wind.innerHTML = `--m/s X`;
+    
+  } else {
 
-        // Locations
+    // Locations
 
-        let city = document.querySelector('.city');
-        city.innerText = `${weather.name}, ${weather.sys.country}`;
+    city.innerHTML = `${weather.name}, ${weather.sys.country} <span>${getFlagEmoji(weather.sys.country)}</span>`;
 
-        // Date (formated)
+    // Date (formated)
 
-        let now = new Date();
-        let date = document.querySelector('.date');
-        date.innerText = dateFormatter(now);
+    date.innerText = dateFormatter(now);
 
-        // Temperature
+    // Temperature
 
-        let temp = document.querySelector('.temp');
-        temp.innerHTML = `${Math.round(weather.main.temp)}&#176;c`;
+    temp.innerHTML = `${Math.round(weather.main.temp)}&#176;c`;
 
-        // Temperature Feels Like
+    // Temperature Feels Like
 
-        let feelsLike = document.querySelector('.feels-like');
-        feelsLike.innerHTML = `${Math.round(weather.main.feels_like)}&#176;c`;
-        
-        // Weather Condition
+    feelsLike.innerHTML = `${Math.round(weather.main.feels_like)}&#176;c`;
 
-        let weatherCondition = document.querySelector('.weather');
-        weatherCondition.innerText = weather.weather[0].description;
+    // Weather Condition
 
-        // Weather Condition Icon
+    weatherCondition.innerText = weather.weather[0].description;
 
-        let weatherParent = document.querySelector('.weather-box');
-        let weatherImgTag = document.querySelector('.weather-icon');
-        let attributes = {
-            'src': getIconUrl(weather.weather[0].icon),
-            'alt': 'weather icon'
-        }
-        setMultipleAttr(weatherImgTag, attributes);
-        weatherParent.append(weatherImgTag);
+    // Weather Condition Icon
 
-        // Daily Temperature High/Low
+    const weatherParent = document.querySelector(".weather-box");
+    const weatherImgTag = document.querySelector(".weather-icon");
+    const attributes = {
+      src: getIconUrl(weather.weather[0].icon),
+      alt: "weather icon",
+    };
+    setMultipleAttr(weatherImgTag, attributes);
+    weatherParent.append(weatherImgTag);
 
-        let high = document.querySelector('.high-low');
-        high.innerHTML = `${Math.round(weather.main.temp_max)}&#176;/${Math.round(weather.main.temp_min)}&#176;`;
+    // Daily Temperature High/Low
 
-        // Humidity %
+    high.innerHTML = `${Math.round(weather.main.temp_max)}&#176;/${Math.round(weather.main.temp_min)}&#176;`;
 
-        let humidity = document.querySelector('.humidity');
-        humidity.innerText = `${weather.main.humidity}%`;
+    // Humidity %
 
-        // Wind Velocity
+    humidity.innerText = `${weather.main.humidity}%`;
 
-        let wind = document.querySelector('.wind-velocity');
-        let windDirection = degToCompass(weather.wind.deg)
-        wind.innerHTML = `${weather.wind.speed}m/s ${windDirection}`;
-    }
+    // Wind Velocity
+
+    const windDirection = degToCompass(weather.wind.deg);
+    wind.innerHTML = `${weather.wind.speed}m/s ${windDirection}`;
+  }
 }
 
 function dateFormatter(d) {
-    return d.toLocaleString('en-US', {
-        // comment out whichever values to skip over in the date format
-        weekday: 'short',       // long, short, narrow
-        day: 'numeric',         // numeric, 2-digit
-        year: 'numeric',        // numeric, 2-digit
-        month: 'long',          // numeric, 2-digit, long, short, narrow
-        hour: 'numeric',        // numeric, 2-digit
-        minute: 'numeric',      // numeric, 2-digit
-        // second: 'numeric',   // numeric, 2-digit
-    });
+  return d.toLocaleString("en-US", {
+    // comment out whichever values to skip over in the date format
+    weekday: "short", // long, short, narrow
+    day: "numeric", // numeric, 2-digit
+    year: "numeric", // numeric, 2-digit
+    month: "long", // numeric, 2-digit, long, short, narrow
+    hour: "numeric", // numeric, 2-digit
+    minute: "numeric", // numeric, 2-digit
+    // second: 'numeric',   // numeric, 2-digit
+  });
 }
 
 function degToCompass(deg) {
-    var num = parseInt((deg/22.5) + 0.5);
-    var directions = [
-        "N", "NNE", "NE", "ENE",
-        "E", "ESE", "SE", "SSE",
-        "S", "SSW", "SW", "WSW",
-        "W", "WNW", "NW", "NNW"
-    ];
-    return directions[(num%16)];
+  const num = parseInt(deg / 22.5 + 0.5, 10);
+  const directions = [
+    "N",
+    "NNE",
+    "NE",
+    "ENE",
+    "E",
+    "ESE",
+    "SE",
+    "SSE",
+    "S",
+    "SSW",
+    "SW",
+    "WSW",
+    "W",
+    "WNW",
+    "NW",
+    "NNW",
+  ];
+  return directions[num % 16];
 }
 
 function getIconUrl(iconCode) {
-    return `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+  return `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
 }
 
 function setMultipleAttr(el, attrs) {
-    for(var key in attrs) {
-        el.setAttribute(key, attrs[key]);
-    }
+  const keys = Object.keys(attrs);
+  const values = Object.values(attrs);
+  for (let i = 0; i < keys.length; i += 1) {
+    el.setAttribute(keys[i], values[i]);
+  }
+}
+
+function getFlagEmoji(countryCode) {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split('')
+    .map(char =>  127397 + char.charCodeAt());
+  return String.fromCodePoint(...codePoints);
 }

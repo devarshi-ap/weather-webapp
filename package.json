@@ -1,0 +1,33 @@
+{
+  "name": "weather-webapp",
+  "version": "1.0.0",
+  "description": "[![CodeFactor](https://www.codefactor.io/repository/github/devarshi-ap/weather-webapp/badge)](https://www.codefactor.io/repository/github/devarshi-ap/weather-webapp)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devarshi-ap/weather-webapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devarshi-ap/weather-webapp/issues"
+  },
+  "homepage": "https://github.com/devarshi-ap/weather-webapp#readme",
+  "devDependencies": {
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "prettier": "^2.3.2"
+  }
+}
