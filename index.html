@@ -7,9 +7,12 @@
     <title>Weather App</title>
 
     <link rel="stylesheet" href="main.css">
+
+    <!--Bulma Framework | Font Awesome-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
-
+    
+    <!--Google Fonts-->
     <style> @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@323&family=Merienda&family=Otomanopee+One&display=swap'); </style>
 </head>
 <body>
@@ -20,7 +23,7 @@
         <div class="columns is-mobile is-centered" style="padding-top: 100px;">
             <div class="column is-half">
                 <div class="control has-icons-left">
-                    <input class="input search-box is-rounded" type="text" id="search_term" placeholder="Search for a city">
+                    <input id="where" class="input search-box is-rounded" type="text" placeholder="Search for a city" autocomplete="off">
                     <span class="icon is-small is-left">
                         <i class="fas fa-map-marked-alt"></i>
                     </span>
@@ -32,46 +35,72 @@
         <div class="columns is-mobile is-centered">
             <div class="column has-text-centered">
                 <section class="location">
-                    <div class="city">Toronto, CA</div>
-                    <div class="date">Sunday, July 18, 2021</div>
+                    <div class="city">Location</div>
+                    <div class="date">date</div>
                 </section>
             </div>
         </div>
 
-        <!--CURRENT-->
+        <!--FIRST ROW-->
         <div class="columns is-mobile is-centered">
             <div class="column has-text-centered">
                 <nav class="level">
 
-                    <!--TEMPERATURE BOX-->
+                    <!--TEMPERATURE-->
                     <div class="level-item has-text-centered">
                         <div class="box">
                             <p class="heading">Temp.</p>
-                            <p class="title temp">28&#176;c</p>
+                            <p class="title temp">--&#176;c</p>
                         </div>
                     </div>
 
-                    <!--WEATHER CONDITION BOX-->
-                    <div class="level-item has-text-centered">
+                    <!--FEELS LIKE-->
+                    <div class="level-item has-text-centered" style="position:relative; left:14px;">
                         <div class="box">
+                            <p class="heading">Feels Like</p>
+                            <p class="title feels-like">--&#176;c</p>
+                        </div>
+                    </div>
+
+                    <!--WEATHER CONDITION-->
+                    <div class="level-item has-text-centered" style="position:relative; left:10px;">
+                        <div class="box weather-box">
                             <p class="heading">Weather Condition</p>
-                            <p class="title weather">Sunny</p>
+                            <p class="title weather">--</p>
+                            <img src="" class="weather-icon"/>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+        <!--SECOND ROW-->
+        <div class="columns is-mobile is-centered">
+            <div class="column has-text-centered">
+                <nav class="level">
+
+                    <!--HIGH-->
+                    <div class="level-item has-text-centered">
+                        <div class="box">
+                            <p class="heading">Hi/Lo</p>
+                            <p class="title high-low">--&#176;c</p>
                         </div>
                     </div>
 
-                    <!--HIGH BOX-->
+                    <!--HUMIDITY-->
                     <div class="level-item has-text-centered">
                         <div class="box">
-                            <p class="heading">High</p>
-                            <p class="title high">30&#176;c</p>
+                            <p class="heading">Humidity</p>
+                            <p class="title humidity">--%</p>
                         </div>
                     </div>
 
-                    <!--LOW BOX-->
+                    <!--WIND VELOCITY-->
                     <div class="level-item has-text-centered">
                         <div class="box">
-                            <p class="heading">Low</p>
-                            <p class="title low">21&#176;c</p>
+                            <p class="heading">Wind Velocity</p>
+                            <p class="title wind-velocity">--</p>
                         </div>
                     </div>
                 </nav>

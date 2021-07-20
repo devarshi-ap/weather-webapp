@@ -1,3 +1,7 @@
+/* * {
+    border: 1px solid red;
+} */
+
 html { 
     background: url("backgrounds/space3.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -24,4 +28,9 @@ html {
 
 .heading {
     color: red;    
+}
+
+.weather-icon {
+    width: 50%;
+    height: auto;
 }
