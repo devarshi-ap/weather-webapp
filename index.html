@@ -16,115 +16,99 @@
     <style> @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@323&family=Merienda&family=Otomanopee+One&display=swap'); </style>
 </head>
 <body>
+    <section class="showcase">
 
-    <div class="section">
-      <h1>Weathr Wizrd</h1>
+        <div class="video-container">
+            <video src="assets/mp4/mountain.mp4" autoplay muted loop id="videoEl"></video>
+        </div>
+        <div class="content">
+            <div style="position: absolute; top:-30px; right:0; margin:40px;">
+                <input type="checkbox" id="toggle"/>
+                <label for="toggle"></label>
+            </div>
 
-      <div class="video-container">
-          <div class="color-overlay" style="opacity: 0.5;"></div>
-          <video autoplay loop muted>
-              <source src="assets/mp4's/mountain.mp4" type="video/mp4">
-          </video>
-      </div>
+            <!--TITLE-->
+            <div class="columns">
+                <div class="column" id="title">
+                    <h1 id="titleEl">Weathr Wizrd</h1>
+                </div>
+            </div>
 
-      <div class="container app-wrap">
+            <!--SEARCHBOX, LOCATION, DATE-->
+            <div class="columns is-mobile is-centered" style="margin-bottom: 70px;">
+                <div class="column is-half">
+                    <div class="control has-icons-left">
+                        <input id="citytextbox" class="input search-box is-rounded" type="text" placeholder="Search for a city" autocomplete="off">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </span>
+                    </div>
 
-        <!--SEARCH BOX-->
-        <div class="columns is-mobile is-centered" style="padding-top: 100px;">
-            <div class="column is-half">
-                <div class="control has-icons-left">
-                    <input id="citytextbox" class="input search-box is-rounded" type="text" placeholder="Search for a city" autocomplete="off">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </span>
+                    <section class="location">
+                        <div class="city" style="margin:30px;">Location <span>&#128205;</span></div>
+                        <div class="date">date</div>
+                    </section>
+                </div>
+            </div>
+
+            <!--ROW OF DATA-->
+            <div class="columns is-multiline" style="width:80vw;border-color: aquamarine;">
+                <div class="column">
+                    <div class="columns is-multiline">
+
+                        <!--TEMPERATURE-->
+                        <div class="column">
+                            <div class="box">
+                                <p class="heading">Temp.</p>
+                                <p class="title temp">--&#176;c</p>
+                            </div>
+                        </div>
+
+                        <!--FEELS LIKE-->
+                        <div class="column">
+                            <div class="box">
+                                <p class="heading">Feels Like</p>
+                                <p class="title feels-like">--&#176;c</p>
+                            </div>
+                        </div>
+
+                        <!--WEATHER CONDITION-->
+                        <div class="column">
+                            <div class="box weather-box">
+                                <p class="heading">Weather Condition</p>
+                                <p class="title weather">--</p>
+                            </div>
+                        </div>
+
+                        <!--HI/LO-->
+                        <div class="column">
+                            <div class="box">
+                                <p class="heading">Hi/Lo</p>
+                                <p class="title high-low">--&#176;c</p>
+                            </div>
+                        </div>
+
+                        <!--HUMIDITY-->
+                        <div class="column">
+                            <div class="box">
+                                <p class="heading">Humidity</p>
+                                <p class="title humidity">--%</p>
+                            </div>
+                        </div>
+
+                        <!--WIND VELOCITY-->
+                        <div class="column">
+                            <div class="box">
+                                <p class="heading">Wind Velocity</p>
+                                <p class="title wind-velocity">--</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!--LOCATION-->
-        <div class="columns is-mobile is-centered">
-            <div class="column has-text-centered">
-                <section class="location">
-                    <div class="city">Location <span>&#128205;</span> </div>
-                    <div class="date">date</div>
-                </section>
-            </div>
-        </div>
-
-        <!--FIRST ROW-->
-        <div class="columns is-mobile is-centered">
-            <div class="column has-text-centered">
-                <nav class="level">
-
-                    <!--TEMPERATURE-->
-                    <div class="level-item has-text-centered">
-                        <div class="box">
-                            <p class="heading">Temp.</p>
-                            <p class="title temp">--&#176;c</p>
-                        </div>
-                    </div>
-
-                    <!--FEELS LIKE-->
-                    <div class="level-item has-text-centered" style="position:relative; left:14px;">
-                        <div class="box">
-                            <p class="heading">Feels Like</p>
-                            <p class="title feels-like">--&#176;c</p>
-                        </div>
-                    </div>
-
-                    <!--WEATHER CONDITION-->
-                    <div class="level-item has-text-centered" style="position:relative; left:10px;">
-                        <div class="box weather-box">
-                            <p class="heading">Weather Condition</p>
-                            <p class="title weather">--</p>
-                            <img src="" class="weather-icon"/>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-
-
-        <!--SECOND ROW-->
-        <div class="columns is-mobile is-centered" style="padding-bottom:100px;">
-            <div class="column has-text-centered">
-                <nav class="level">
-
-                    <!--HIGH-->
-                    <div class="level-item has-text-centered">
-                        <div class="box">
-                            <p class="heading">Hi/Lo</p>
-                            <p class="title high-low">--&#176;c</p>
-                        </div>
-                    </div>
-
-                    <!--HUMIDITY-->
-                    <div class="level-item has-text-centered">
-                        <div class="box">
-                            <p class="heading">Humidity</p>
-                            <p class="title humidity">--%</p>
-                        </div>
-                    </div>
-
-                    <!--WIND VELOCITY-->
-                    <div class="level-item has-text-centered">
-                        <div class="box">
-                            <p class="heading">Wind Velocity</p>
-                            <p class="title wind-velocity">--</p>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <footer class="footer" style="height: 75vh;">
-      <div class="content has-text-centered" style="padding-top:110px;">
-        <p style="font-size:20px ;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">made by with &#10084;&#65039; by <a href="http://devarshi-ap.github.io/" target="_blank" style="color:white;">Devarshi Patel</a></p>
-      </div>
-    </footer>
-    
     <script src="main.js"></script>
 </body>
 </html>
