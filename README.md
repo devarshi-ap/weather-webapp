@@ -8,10 +8,11 @@
 - JavaScript
 - Pre-commit linting via Stylelint
 
-### Version History
+### Version History (see branches)
 - <strike>v1.1: simple background, city-input-field, display 3 values</strike>
-- v2.0:
+- v2.:
     * Pre-commit linting (ESlint) + formatting (airbnb/prettier)
+    * Re-designed layout, toggle background video button.
 
 ### To Do:
 - [x] dynamic icon beside weather-box which changes based on city
