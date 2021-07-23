@@ -17,11 +17,11 @@ if(checkbox){
       if (this.checked) {
           titleEl.style.color= 'silver';
           document.getElementById('title').style.opacity= 1;
-          videoEl.setAttribute('src', 'assets/mp4/space.mp4');
+          videoEl.setAttribute('src', "assets/mp4/space.mp4");
       }
       if (!(this.checked)) {
           titleEl.style.color= 'white';
-          videoEl.setAttribute('src', 'assets/mp4/mountain.mp4');
+          videoEl.setAttribute('src', "assets/mp4/mountain.mp4");
       }
   });
     
