@@ -3,6 +3,9 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/devarshi-ap/weather-webapp/badge)](https://www.codefactor.io/repository/github/devarshi-ap/weather-webapp)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/558d550a-ac93-47a7-a9de-00b3b86b097f/deploy-status)](https://app.netlify.com/sites/weathrweb/deploys)
 
+
+### Url: https://weathrweb.netlify.app/
+
 ### Technologies & Tools:
 - HTML
 - CSS
