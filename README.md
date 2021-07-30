@@ -18,12 +18,4 @@
     * Pre-commit linting (ESlint) + formatting (airbnb/prettier)
     * Re-designed layout, toggle background video button.
 
-### To Do:
-- [x] dynamic icon beside weather-box which changes based on city
-- [x] Display more data from the API.
-- [x] Error handling for invalid city input-field queries
-- [x] Create an algorithm to convert degrees (meteorological-standard) to compass bearing (NNE, SW, etc) for Wind Velocity
-- [x] Video background auto-looped element
-- [ ] Autocomplete feauture for input field (find an api or use JQuery autocomplete with an array-source)
-- [ ] Add Sunrise/Sunset sundial component
-- [ ] Webhosted
+### Setup
