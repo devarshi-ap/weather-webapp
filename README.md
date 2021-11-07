@@ -19,4 +19,4 @@
     * Re-designed layout, toggle background video button.
 
 ### Setup
-git clone, then open the html file with a live server or some other editing environment .
+git clone, then open the html file with a live server or some other editing environment.
